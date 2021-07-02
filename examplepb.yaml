@@ -1,0 +1,19 @@
+# example playbook
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+  
+  - name: Ensure rule is absent
+    adguard_rewrite:
+      path: example/adguard.yaml
+      domain: greetings.example.net
+      answer: 192.168.0.2
+      state: absent
+      
+  - name: Add a rewrite rule to config
+    adguard_rewrite:
+      path: example/adguard.yaml
+      domain: hello.example.net
+      answer: 192.168.0.1
+      
+
